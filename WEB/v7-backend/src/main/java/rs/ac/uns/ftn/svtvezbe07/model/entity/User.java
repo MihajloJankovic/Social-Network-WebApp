@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -36,4 +38,6 @@ public class User {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Roles role;
+    @OneToMany( fetch = FetchType.EAGER)
+    private Set<post> posts = new HashSet<post>();
 }

@@ -1,0 +1,17 @@
+ <p  *ngIf="a == 1" class="alert alert-success" >Wrong credentials !</p>
+
+    <form [formGroup]="forma" (ngSubmit)="onSubmit()">
+
+        <input  formControlName="username"  placeholder="" required>
+
+        <input formControlName="password"   placeholder="" required type="password">
+
+      <input type="submit" value="Login" />
+      <br>
+      <button color="primary" (click)="back()"  >Go Back</button>
+    </form>
+    <br>
+
+
+    <br>
+    <hr>

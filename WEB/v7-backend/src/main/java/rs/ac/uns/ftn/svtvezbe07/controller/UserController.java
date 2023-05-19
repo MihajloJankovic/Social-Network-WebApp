@@ -1,5 +1,7 @@
 package rs.ac.uns.ftn.svtvezbe07.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,9 +13,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import rs.ac.uns.ftn.svtvezbe07.model.dto.JwtAuthenticationRequest;
+import rs.ac.uns.ftn.svtvezbe07.model.dto.PassDTO;
 import rs.ac.uns.ftn.svtvezbe07.model.dto.UserDTO;
 import rs.ac.uns.ftn.svtvezbe07.model.dto.UserTokenState;
 import rs.ac.uns.ftn.svtvezbe07.model.entity.User;
@@ -24,13 +28,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 import java.util.List;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("api/users")
 public class UserController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     UserDetailsService userDetailsService;
@@ -40,28 +46,21 @@ public class UserController {
 
     @Autowired
     TokenUtils tokenUtils;
-
-    /* Ili preporucen nacin: Constructor Dependency Injection
     @Autowired
-    public UserController(UserServiceImpl userService, AuthenticationManager authenticationManager,
-                          UserDetailsService userDetailsService, TokenUtils tokenUtils){
-        this.userService = userService;
-        this.authenticationManager = authenticationManager;
-        this.userDetailsService = userDetailsService;
-        this.tokenUtils = tokenUtils;
-    }
-    */
+    private ObjectMapper objectMapper;
+
+
     @PostMapping("/signup")
-    public ResponseEntity<UserDTO> create(@RequestBody @Validated UserDTO newUser){
+    public HttpStatus create(@RequestBody @Validated UserDTO newUser){
 
         User createdUser = userService.createUser(newUser);
 
         if(createdUser == null){
-            return new ResponseEntity<>(null, HttpStatus.NOT_ACCEPTABLE);
+            return HttpStatus.NOT_ACCEPTABLE;
         }
-        UserDTO userDTO = new UserDTO(createdUser);
 
-        return new ResponseEntity<>(userDTO, HttpStatus.CREATED);
+
+        return HttpStatus.CREATED;
     }
 
     @PostMapping("/login")
@@ -89,12 +88,30 @@ public class UserController {
     @GetMapping("/all")
     @PreAuthorize("hasRole('ADMIN')")
     public List<User> loadAll() {
+
         return this.userService.findAll();
     }
 
-    @GetMapping("/whoami")
+    @GetMapping("/getUser")
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public User user(Principal user) {
         return this.userService.findByUsername(user.getName());
+    }
+    @PostMapping("/changepass")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public HttpStatus user(Principal user,@RequestBody  String dto ) throws JsonProcessingException {
+        User pera = this.userService.findByUsername(user.getName());
+        ObjectMapper mapper = new ObjectMapper();
+        PassDTO usera = mapper.readValue(dto, PassDTO.class);
+
+        if(passwordEncoder.matches(usera.getOldPassword(),pera.getPassword())  )
+        {
+
+
+        this.userService.ChangePassword(user.getName(),usera.getNewPassword());
+            return HttpStatus.ACCEPTED;
+        }
+        else return HttpStatus.NOT_ACCEPTABLE;
+
     }
 }

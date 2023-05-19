@@ -1,0 +1,16 @@
+<div *ngFor="let post of posts">
+  <label>User :  </label>
+  <label>{{post.user}}</label>
+  <br>
+  <label>Post DateTime :  </label>
+  <label>{{post.dat}}</label>
+<br>
+  <label>Post Text :  </label>
+  <label>{{post.tekst}}</label>
+  <br>
+  <br>
+  <form action="http://localhost:8080/api/post/delete">
+    <input type="text" name="id" value="{{post.id}}}" hidden="hidden">
+    <button></button>
+  </form>
+</div>
