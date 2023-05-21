@@ -31,6 +31,8 @@ public class post {
     @Column(nullable = false)
     private LocalDateTime date;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Comment> comments = new HashSet<Comment>();
+    @Column(nullable = true)
+    private Boolean deleted;
 }

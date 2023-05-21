@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {AuthServiceService} from "../Services/auth.service.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {GroupService} from "../Services/group.service";
+import {PostService} from "../Services/post.service";
 
 @Component({
   selector: 'app-group-create',
@@ -33,6 +34,7 @@ export class GroupCreateComponent {
     private router: Router,
     private route: ActivatedRoute,
     private groupService: GroupService,
+
   ) {
     if(this.authService.isAuthenticated())
     {
@@ -71,4 +73,5 @@ export class GroupCreateComponent {
 
 
   }
+
 }

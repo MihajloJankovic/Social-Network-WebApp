@@ -28,6 +28,8 @@ public class Group {
     private LocalDateTime date;
     @Column(nullable = false)
     private Long GroupAdmin;
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
     private Set<post> posts = new HashSet<post>();
+    @Column(nullable = true)
+    private Boolean deleted;
 }

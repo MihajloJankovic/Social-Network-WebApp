@@ -1,0 +1,17 @@
+<div *ngIf="b ==1" >
+
+
+  <form [formGroup]="forma" (ngSubmit)="onSubmit()" >
+    <input type="hidden" formControlName="id" value="{{post.id}}"  name="id"><br><br>
+    <label>Group Description :  </label>
+    <input type="text" formControlName="Description" value="{{post.description}}" name="text"><br><br>
+    <label>Group Name :  </label>
+    <input type="text" formControlName="name" value="{{post.name}}" name="text"><br><br>
+    <input type="submit" value="Save">
+  </form>
+  <button color="primary" (click)="back()" >Go Back</button>
+  <br>
+
+  <br>
+  <br>
+</div>

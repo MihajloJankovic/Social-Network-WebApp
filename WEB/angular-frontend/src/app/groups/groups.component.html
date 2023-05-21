@@ -1,0 +1,15 @@
+<div *ngIf="b ==1">
+<div *ngFor="let group of groups"  >
+  <br>
+  <label>Group Name :  </label>
+  <label>{{group.name}}</label>
+  <br>
+  <label>Group Description :  </label>
+  <label>{{group.description}}</label>
+  <br>
+  <button (click)="getElementId($event)" id="{{group.id}}" >delete</button>
+  <button (click)="getElementId($event)" id="{{group.id}}" >edit</button>
+  <br>
+  <br>
+</div>
+</div>

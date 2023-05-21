@@ -27,6 +27,9 @@ import { GroupCreateComponent } from './group-create/group-create.component';
 import { PostsComponent } from './posts/posts.component';
 import {PostService} from "./Services/post.service";
 import {GroupService} from "./Services/group.service";
+import { OnePostComponent } from './one-post/one-post.component';
+import { GroupsComponent } from './groups/groups.component';
+import { OneGroupComponent } from './one-group/one-group.component';
 const routes: Routes = [
   { path: '', component: HomeComponentComponent },
   { path: 'login', component: LoginComponent},
@@ -34,10 +37,16 @@ const routes: Routes = [
   { path: 'HomePage', component: HomePageComponent },
   { path: 'passchange', component: PasswordChangeComponent},
   { path: 'GroupCreate', component: GroupCreateComponent},
+  { path: 'post/:id', component: OnePostComponent},
+  { path: 'groups', component: GroupsComponent},
+  { path: 'group/:id', component: OneGroupComponent},
 
 ];
 @NgModule({
   declarations: [
+    OneGroupComponent,
+    GroupsComponent,
+    OnePostComponent,
     GroupCreateComponent,
     AppComponent,
     PasswordChangeComponent,
@@ -47,7 +56,10 @@ const routes: Routes = [
     HomePageComponent,
     PasswordChangeComponent,
     GroupCreateComponent,
-    PostsComponent
+    PostsComponent,
+    OnePostComponent,
+    GroupsComponent,
+    OneGroupComponent
   ],
   imports: [
     BrowserModule,

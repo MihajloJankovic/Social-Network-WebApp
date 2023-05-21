@@ -13,6 +13,13 @@ export class ConfigServiceService {
   _groupcreate_url: string;
   _postcreate_url: string;
   _postAll_url: string;
+  _deletepost_url: string;
+  _postone_url: string;
+  _postsave_url: string;
+  _groupone_url: string;
+  _groupall_url: string;
+  _groupsave_url: string;
+  _groupdelete_url: string;
   constructor() {
     this._api_url = 'http://localhost:8080/api';
     this._user_url = this._api_url + '/users';
@@ -25,7 +32,13 @@ export class ConfigServiceService {
 
 
     this._signup_url = this._user_url + '/signup';
-this._postAll_url = this._api_url + "/post/All"
-
+this._postAll_url = this._api_url + "/post/All";
+    this._deletepost_url= this._api_url + "/post/delete";
+    this._postone_url = this._api_url + "/post/one";
+    this._postsave_url = this._api_url + "/post/save";
+    this._groupone_url= this._api_url + "/group/one";
+    this._groupall_url= this._api_url + "/group/getAll";
+    this. _groupsave_url= this._api_url + "/group/save";
+    this.  _groupdelete_url =this._api_url + "/group/delete";
   }
 }

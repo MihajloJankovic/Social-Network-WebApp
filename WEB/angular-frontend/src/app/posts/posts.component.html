@@ -8,9 +8,8 @@
   <label>Post Text :  </label>
   <label>{{post.tekst}}</label>
   <br>
+    <button (click)="getElementId($event)" id="{{post.id}}" >delete</button>
+  <button (click)="getElementId($event)" id="{{post.id}}" >edit</button>
   <br>
-  <form action="http://localhost:8080/api/post/delete">
-    <input type="text" name="id" value="{{post.id}}}" hidden="hidden">
-    <button></button>
-  </form>
+  <br>
 </div>

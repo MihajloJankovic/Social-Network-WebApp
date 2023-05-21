@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PostRepository  extends JpaRepository<post, Long> {
-    List<post> findAllByUser(Long User);
-
+    List<post> findAllByUserAndDeleted(Long User,boolean Deleted);
+    post findFirstById(Long Id);
 
 
 

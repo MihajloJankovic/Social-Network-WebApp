@@ -61,4 +61,62 @@ export class GroupService {
         }
       });
   }
+  save(post:any) {
+    const loginHeaders = new HttpHeaders({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    });
+    // const body = `username=${user.username}&password=${user.password}`;
+    const body = {
+      'id': post.id,
+      'name': post.name,
+      'description': post.Description,
+
+    };
+    return this.apiService.post(this.config._groupsave_url, JSON.stringify(body), loginHeaders)
+      .subscribe((res) => {
+        if(res.body == "NOT_ACCEPTABLE" || res.name == "HttpErrorResponse")
+        {
+          alert("Error")
+        }else {
+          alert("Save success");
+          let returnUrl : String;
+          returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+          this.router.navigate([returnUrl + "/HomePage"]);
+        }
+      });
+  }
+  public g : any;
+  getAll() {
+
+
+
+    return this.apiService.get(this.config._groupall_url);
+
+  }
+  delete(id:any) {
+
+    // const body = `username=${user.username}&password=${user.password}`;
+    const body = id;
+    return this.apiService.delete(this.config._groupdelete_url, JSON.stringify(body))
+      .subscribe((res) => {
+        if(res.body == "NOT_ACCEPTABLE" || res.name == "HttpErrorResponse")
+        {
+          alert("Error")
+        }else {
+          alert("Delete success");
+          window.location.reload();
+        }
+      });
+  }
+  getOne(a:any) {
+
+
+
+    // const body = `username=${user.username}&password=${user.password}`;
+    const body =a;
+
+    return this.apiService.post(this.config._groupone_url,body);
+
+  }
 }

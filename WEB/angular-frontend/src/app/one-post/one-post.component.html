@@ -1,0 +1,16 @@
+<div *ngIf="b ==1" >
+
+
+  <form [formGroup]="forma" (ngSubmit)="onSubmit()" >
+
+    <input type="hidden" formControlName="id" value="{{post.id}}"  name="id"><br><br>
+    <label>Post Text :  </label>
+    <input type="text" formControlName="text" value="{{post.tekst}}" name="text"><br><br>
+    <input type="submit" value="Save">
+  </form>
+  <button color="primary" (click)="back()" >Go Back</button>
+  <br>
+
+  <br>
+  <br>
+</div>

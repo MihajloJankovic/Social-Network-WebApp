@@ -38,6 +38,6 @@ public class User {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Roles role;
-    @OneToMany( fetch = FetchType.EAGER)
+    @OneToMany( fetch = FetchType.EAGER ,cascade = CascadeType.REMOVE)
     private Set<post> posts = new HashSet<post>();
 }
