@@ -38,24 +38,57 @@ export class PostService {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     });
+    if(user.sGroup == null)
+    {
+      alert("Chose Where Frist !!!");
+      return ;
+    }
+    if(user.post.length <3){
+      alert("Post Text Too Short !!!");
+      return ;
+    }
+    if(user.sGroup=="0")
+    {
+      const body = {
+        'tekst': user.post,
+
+
+      };
+      return this.apiService.post(this.config._postcreate_url, JSON.stringify(body), loginHeaders)
+        .subscribe((res) => {
+          if(res.body == "NOT_ACCEPTABLE" || res.name == "HttpErrorResponse")
+          {
+            alert("wrong Details")
+          }else {
+            alert("Creation success");
+            let returnUrl : String;
+            returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+            this.router.navigate([returnUrl + "/HomePage"]);
+          }
+        });
+    }
+    else {
+      const body = {
+        'group': user.sGroup,
+        'tekst': user.post,
+
+
+      };
+      return this.apiService.post(this.config._postcreateGroup_url, JSON.stringify(body), loginHeaders)
+        .subscribe((res) => {
+          if(res.body == "NOT_ACCEPTABLE" || res.name == "HttpErrorResponse")
+          {
+            alert("Error")
+          }else {
+            alert("Creation success");
+            let returnUrl : String;
+            returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+            this.router.navigate([returnUrl + "/HomePage"]);
+          }
+        });
+    }
     // const body = `username=${user.username}&password=${user.password}`;
-    const body = {
-      'tekst': user.post,
 
-
-    };
-    return this.apiService.post(this.config._postcreate_url, JSON.stringify(body), loginHeaders)
-      .subscribe((res) => {
-        if(res.body == "NOT_ACCEPTABLE" || res.name == "HttpErrorResponse")
-        {
-          alert("wrong Details")
-        }else {
-          alert("Creation success");
-          let returnUrl : String;
-          returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-          this.router.navigate([returnUrl + "/HomePage"]);
-        }
-      });
   }
   save(post:any) {
     const loginHeaders = new HttpHeaders({
@@ -88,6 +121,13 @@ export class PostService {
 
 
      return this.apiService.get(this.config._postAll_url);
+
+  }
+  getAllAll() {
+
+
+
+    return this.apiService.get(this.config._postAllAll_url);
 
   }
   getOne(a:any) {

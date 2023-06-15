@@ -56,7 +56,33 @@ public class PostServieimpl {
         for ( post aa: posts
              ) {
             postDTO pera = new postDTO();
-            pera.setUser(userService.findOne(aa.getUser()).getFirstname());
+
+            if (userService.findOne(aa.getUser()).getDisplayName() == null || userService.findOne(aa.getUser()).getDisplayName().length() == 0)
+                pera.setUser(userService.findOne(aa.getUser()).getFirstname());
+            else
+                pera.setUser(userService.findOne(aa.getUser()).getDisplayName());
+            pera.setTekst(aa.getText());
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+            String formatDateTime = aa.getDate().format(formatter);
+            pera.setDat(formatDateTime);
+            pera.setId(aa.getId());
+            dtos.add(pera);
+        }
+        return dtos;
+    }
+    public List<postDTO> getAllAll() {
+
+        List<postDTO> dtos= new ArrayList<postDTO>();
+        List<post> posts = postRepository.findAllByDeleted(false);
+        for ( post aa: posts
+        ) {
+            postDTO pera = new postDTO();
+
+            if (userService.findOne(aa.getUser()).getDisplayName() == null || userService.findOne(aa.getUser()).getDisplayName().length() == 0)
+                pera.setUser(userService.findOne(aa.getUser()).getFirstname());
+            else
+                pera.setUser(userService.findOne(aa.getUser()).getDisplayName());
             pera.setTekst(aa.getText());
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 

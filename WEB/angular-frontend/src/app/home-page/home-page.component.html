@@ -7,7 +7,7 @@
 <br>
 <br>
 <a href="http://localhost:4200/GroupCreate"><button>Create Group</button></a>
-<a href="http://localhost:4200/groups"><button>My Groups</button></a>
+<a href="http://localhost:4200/MyProfile"><button>My Profile</button></a>
 
 <br>
 <br>
@@ -15,8 +15,14 @@
 <br>
 <form [formGroup]="forma" (ngSubmit)="onSubmit()">
 <div  class="container">
+
+  <select name="group" id="group" formControlName="sGroup">
+    <option [ngValue]="null" disabled>Select Where to post</option>
+    <option [ngValue]="0" >My Profile</option>
+    <option *ngFor="let country of groups" [ngValue]="country.id">{{country.name}}</option>
+  </select>
   <label>Post Text : </label>
-  <input type="text" formControlName="post"  name="post" required>
+  <input type="text"  formControlName="post"  name="post" required>
 
 
   <br>
@@ -34,3 +40,6 @@
 <h4>My Posts</h4>
 <app-posts [posts]="posta">
 </app-posts>
+<h3>Feed</h3>
+<app-posts-all [posts]="postaa">
+</app-posts-all>

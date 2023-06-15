@@ -9,12 +9,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import rs.ac.uns.ftn.svtvezbe07.model.dto.PostDTO;
+import rs.ac.uns.ftn.svtvezbe07.model.dto.PostGroupDTO;
 import rs.ac.uns.ftn.svtvezbe07.model.dto.PostSaveDTO;
 import rs.ac.uns.ftn.svtvezbe07.model.dto.postDTO;
+import rs.ac.uns.ftn.svtvezbe07.model.entity.Group;
 import rs.ac.uns.ftn.svtvezbe07.model.entity.User;
 import rs.ac.uns.ftn.svtvezbe07.model.entity.post;
 import rs.ac.uns.ftn.svtvezbe07.security.TokenUtils;
 import rs.ac.uns.ftn.svtvezbe07.service.UserService;
+import rs.ac.uns.ftn.svtvezbe07.service.implementation.GroupServiceimpl;
 import rs.ac.uns.ftn.svtvezbe07.service.implementation.PostServieimpl;
 
 import java.security.Principal;
@@ -31,7 +34,8 @@ public class PostController  {
     PostServieimpl postservice;
     @Autowired
     UserService userService;
-
+    @Autowired
+    GroupServiceimpl groupService;
     @Autowired
     UserDetailsService userDetailsService;
 
@@ -74,6 +78,25 @@ public class PostController  {
         User pera = this.userService.findByUsername(user.getName());
         return postservice.getAll(pera.getId());
 
+    }
+    @GetMapping("/AllAll")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public List<postDTO> use1r(Principal user) {
+
+
+        return postservice.getAllAll();
+
+    }
+    @PostMapping("/GroupPost")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public post useaar(Principal user, @RequestBody @Validated PostGroupDTO dto) {
+        User peraa = this.userService.findByUsername(user.getName());
+        Group pera = this.groupService.getOne(Long.valueOf(dto.getGroup()));
+
+        post b = this.postservice.createGroup(dto.getTekst(),peraa.getId());
+        pera.getPosts().add(b);
+        groupService.save(pera);
+        return b;
     }
 
     @PostMapping("/save")

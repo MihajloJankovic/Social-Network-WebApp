@@ -30,6 +30,7 @@ import {GroupService} from "./Services/group.service";
 import { OnePostComponent } from './one-post/one-post.component';
 import { GroupsComponent } from './groups/groups.component';
 import { OneGroupComponent } from './one-group/one-group.component';
+import {PostsAllComponent} from "./posts-all/posts-all.component";
 const routes: Routes = [
   { path: '', component: HomeComponentComponent },
   { path: 'login', component: LoginComponent},
@@ -38,13 +39,14 @@ const routes: Routes = [
   { path: 'passchange', component: PasswordChangeComponent},
   { path: 'GroupCreate', component: GroupCreateComponent},
   { path: 'post/:id', component: OnePostComponent},
-  { path: 'groups', component: GroupsComponent},
+  { path: 'MyProfile', component: GroupsComponent},
   { path: 'group/:id', component: OneGroupComponent},
 
 ];
 @NgModule({
   declarations: [
     OneGroupComponent,
+    PostsAllComponent,
     GroupsComponent,
     OnePostComponent,
     GroupCreateComponent,

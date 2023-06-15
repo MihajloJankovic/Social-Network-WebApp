@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {PostService} from "../Services/post.service";
 import {UserServiceService} from "../user-service.service";
+import {GroupService} from "../Services/group.service";
 
 @Component({
   selector: 'app-home-page',
@@ -13,6 +14,7 @@ import {UserServiceService} from "../user-service.service";
 export class HomePageComponent {
 
   forma = new FormGroup({
+    sGroup: new FormControl(),
     post: new FormControl(''),
   });
 
@@ -30,7 +32,8 @@ export class HomePageComponent {
 
 
    posta:any;
-
+  postaa:any;
+  groups:any;
 
 
 
@@ -52,6 +55,7 @@ export class HomePageComponent {
     private userService: UserServiceService,
     private router: Router,
     private route: ActivatedRoute,
+    private groupService: GroupService,
     private formBuilder: FormBuilder,
     private postService : PostService,
 
@@ -90,7 +94,13 @@ export class HomePageComponent {
 
     });
 
+    this.postService.getAllAll().subscribe((data) => {
+      this.postaa = data;
 
+    });this.groupService.getAll().subscribe((data) => {
+      this.groups = data;
+
+    });
 
   }
 }

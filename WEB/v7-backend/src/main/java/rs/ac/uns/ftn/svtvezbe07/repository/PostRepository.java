@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface PostRepository  extends JpaRepository<post, Long> {
     List<post> findAllByUserAndDeleted(Long User,boolean Deleted);
+    List<post> findAllByDeleted(boolean Deleted);
     post findFirstById(Long Id);
 
 
