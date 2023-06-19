@@ -1,3 +1,18 @@
+
+<div *ngIf="ba ==1">
+<h4>Settings</h4>
+  <form [formGroup]="forma" (ngSubmit)="onSubmit()" >
+    <label>Display Name :  </label>
+    <input type="text" formControlName="name"  value="{{user.name}}" name="text"><br><br>
+    <label>Profile Discription :  </label>
+    <input type="text" formControlName="desc"  value="{{user.description}}" name="desc"><br><br>
+    <input type="submit" value="Save">
+    <input type="hidden" formControlName="id" value="{{user.id}}"  name="id"><br><br>
+
+
+  </form>
+</div>
+<h4>My Groups</h4>
 <div *ngIf="b ==1">
 <div *ngFor="let group of groups"  >
   <br>

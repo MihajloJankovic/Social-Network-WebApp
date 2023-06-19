@@ -16,10 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import rs.ac.uns.ftn.svtvezbe07.model.dto.JwtAuthenticationRequest;
-import rs.ac.uns.ftn.svtvezbe07.model.dto.PassDTO;
-import rs.ac.uns.ftn.svtvezbe07.model.dto.UserDTO;
-import rs.ac.uns.ftn.svtvezbe07.model.dto.UserTokenState;
+import rs.ac.uns.ftn.svtvezbe07.model.dto.*;
 import rs.ac.uns.ftn.svtvezbe07.model.entity.User;
 import rs.ac.uns.ftn.svtvezbe07.security.TokenUtils;
 import rs.ac.uns.ftn.svtvezbe07.service.UserService;
@@ -90,6 +87,16 @@ public class UserController {
     public List<User> loadAll() {
 
         return this.userService.findAll();
+    }
+
+    @PostMapping("/SaveDName")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public User userad(Principal user,@RequestBody @Validated UsaveDTO dto) {
+       User pera = this.userService.findByUsername(user.getName());
+       pera.setDisplayName(dto.getName());
+       pera.setDescription(dto.getDesc());
+       userService.Save(pera);
+       return pera;
     }
 
     @GetMapping("/getUser")
