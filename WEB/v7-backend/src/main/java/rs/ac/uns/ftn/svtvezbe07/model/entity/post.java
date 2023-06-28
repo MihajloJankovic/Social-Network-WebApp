@@ -33,6 +33,9 @@ public class post {
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Comment> comments = new HashSet<Comment>();
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<Reaction> reactions = new HashSet<Reaction>();
     @Column(nullable = true)
     private Boolean deleted;
 }

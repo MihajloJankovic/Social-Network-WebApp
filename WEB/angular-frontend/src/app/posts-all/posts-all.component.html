@@ -8,6 +8,14 @@
   <label>Post Text :  </label>
   <label>{{post.tekst}}</label>
   <br>
+  <button (click)="getElementId($event)" id="{{post.id}}" >Like</button>
+  <button (click)="getElementId($event)" id="{{post.id}}" >Dislike</button>
+  <button (click)="getElementId($event)" id="{{post.id}}" >Hearth</button>
+  <br>
+  <label>Likes : {{post.like}}  </label>
+  <label>Dislikes : {{post.dislike}}  </label>
+  <label>Hearths : {{post.hearth}}  </label>
+
   <br>
   <br>
 </div>

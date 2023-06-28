@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {PostService} from "../Services/post.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {CommentServiceService} from "../Services/comment-service.service";
 
 @Component({
   selector: 'app-posts-all',
@@ -8,7 +9,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./posts-all.component.css']
 })
 export class PostsAllComponent {
-  constructor(private postService : PostService, private router: Router,
+  constructor(private postService : PostService,private commentService : CommentServiceService, private router: Router,
               private route: ActivatedRoute,) {
 
   }
@@ -20,16 +21,20 @@ export class PostsAllComponent {
     let element = event.target || event.srcElement || event.currentTarget;
     // Get the id of the source element
     let elementId = element.id;
-    if(element.innerText == "delete")
+
+    if(element.innerText == "Like")
     {
-      this.postService.delete(elementId);
+      this.commentService.ReactionNew(elementId,1);
     }
-    if(element.innerText == "edit")
+    if(element.innerText == "Dislike")
     {
-      let returnUrl : String;
-      returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-      this.router.navigate([returnUrl + '/post',elementId]);
+      this.commentService.ReactionNew(elementId,2);
     }
+    if(element.innerText == "Hearth")
+    {
+      this.commentService.ReactionNew(elementId,3);
+    }
+
 
 
   }

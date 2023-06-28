@@ -26,8 +26,10 @@ public class Reaction {
 
     @Column(nullable = false)
     private Long user;
+    @Column(nullable = false ,unique = true)
+    private Long post;
 
-    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Reactions type;
     @Column(nullable = false)
     private LocalDate date;

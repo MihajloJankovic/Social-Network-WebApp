@@ -31,6 +31,7 @@ import { OnePostComponent } from './one-post/one-post.component';
 import { GroupsComponent } from './groups/groups.component';
 import { OneGroupComponent } from './one-group/one-group.component';
 import {PostsAllComponent} from "./posts-all/posts-all.component";
+import {CommentServiceService} from "./Services/comment-service.service";
 const routes: Routes = [
   { path: '', component: HomeComponentComponent },
   { path: 'login', component: LoginComponent},
@@ -81,7 +82,7 @@ const routes: Routes = [
     useClass: TokenInterceptor,
     multi: true
   },AuthServiceService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    JwtHelperService,GroupService,PostService,ConfigServiceService,UserServiceService],
+    JwtHelperService,GroupService,PostService,ConfigServiceService,UserServiceService,CommentServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
