@@ -26,8 +26,10 @@ public class Reaction {
 
     @Column(nullable = false)
     private Long user;
-    @Column(nullable = false ,unique = true)
+    @Column(unique = true)
     private Long post;
+    @Column(unique = true)
+    private Long comment;
 
     @Enumerated(EnumType.STRING)
     private Reactions type;

@@ -19,12 +19,15 @@ export class ConfigServiceService {
   _postone_url: string;
   _postsave_url: string;
   _groupone_url: string;
+  _addComment_url:string;
+
   _groupall_url: string;
   _groupsave_url: string;
   _groupdelete_url: string;
   _userDispayNameSave_url :string;
   _userone_url :string;
   _addReaction_url:string;
+  _addReactionComment_url:string;
   constructor() {
     this._api_url = 'http://localhost:8080/api';
     this._user_url = this._api_url + '/users';
@@ -37,6 +40,8 @@ export class ConfigServiceService {
     this._postcreateGroup_url = this._api_url + "/post/GroupPost";
   this._userDispayNameSave_url = this._user_url +"/SaveDName";
 this._addReaction_url = this._api_url + "/comment/addReaction";
+this._addComment_url = this._api_url + "/comment/addReactionComment";
+    this._addReactionComment_url = this._api_url + "/comment/addReactionToComment";
     this._signup_url = this._user_url + '/signup';
 this._postAll_url = this._api_url + "/post/All";
     this._postAllAll_url = this._api_url + "/post/AllAll";

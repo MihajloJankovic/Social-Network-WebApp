@@ -1,0 +1,8 @@
+<div >
+  <form [formGroup]="forma" (ngSubmit)="onSubmit()">
+    <label>Comment Text : </label>
+    <input type="text"  formControlName="comment"  required>
+    <input type="submit">
+    <input type="hidden" formControlName="postid" >
+  </form>
+</div>

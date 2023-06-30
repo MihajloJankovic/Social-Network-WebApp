@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e895ee8e-d5f2-44e7-bef2-4709f52d1177" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/WebTehnologije.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/WebTehnologije.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v7-backend/src/main/java/rs/ac/uns/ftn/svtvezbe07/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/v7-backend/src/main/java/rs/ac/uns/ftn/svtvezbe07/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v7-backend/src/main/java/rs/ac/uns/ftn/svtvezbe07/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/v7-backend/src/main/java/rs/ac/uns/ftn/svtvezbe07/model/entity/User.java" afterDir="false" />
-    </list>
+    <list default="true" id="e895ee8e-d5f2-44e7-bef2-4709f52d1177" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,16 +18,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mihajlo/Documents/GitHub/WebTehnologije/WEB/v7-backend&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/mihajlo/Documents/GitHub/WebTehnologije",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="npm.Angular CLI Server">
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
@@ -75,6 +64,7 @@
       <workItem from="1684232522638" duration="11000" />
       <workItem from="1684233087529" duration="12000" />
       <workItem from="1684313903146" duration="13000" />
+      <workItem from="1688054494077" duration="22000" />
     </task>
     <servers />
   </component>

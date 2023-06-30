@@ -23,7 +23,7 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false)
     private Long user;
 
     @Column(nullable = false)
@@ -33,6 +33,6 @@ public class Comment {
     private LocalDate date;
     @Column(nullable = false)
     private Boolean deleted;
-    @OneToMany( fetch = FetchType.LAZY)
+    @OneToMany( fetch = FetchType.EAGER)
     private Set<Reaction> Reaction= new HashSet<Reaction>();
 }

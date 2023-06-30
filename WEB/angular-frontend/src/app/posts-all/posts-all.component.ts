@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {PostService} from "../Services/post.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CommentServiceService} from "../Services/comment-service.service";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-posts-all',
@@ -30,11 +31,22 @@ export class PostsAllComponent {
     {
       this.commentService.ReactionNew(elementId,2);
     }
-    if(element.innerText == "Hearth")
+    if(element.innerText == "Heart")
     {
       this.commentService.ReactionNew(elementId,3);
     }
-
+    if(element.innerText == "Like Comment")
+    {
+      this.commentService.ReactionNewCOmment(elementId,1);
+    }
+    if(element.innerText == "Dislike Comment")
+    {
+      this.commentService.ReactionNewCOmment(elementId,2);
+    }
+    if(element.innerText == "Heart Comment")
+    {
+      this.commentService.ReactionNewCOmment(elementId,3);
+    }
 
 
   }

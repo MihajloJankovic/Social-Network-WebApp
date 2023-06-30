@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05b78146-e3f0-4191-bfe0-861d93ee8fb9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/WebTehnologije.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WebTehnologije.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WEB/v7-backend/src/main/java/rs/ac/uns/ftn/svtvezbe07/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WEB/v7-backend/src/main/java/rs/ac/uns/ftn/svtvezbe07/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WEB/v7-backend/src/main/java/rs/ac/uns/ftn/svtvezbe07/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/WEB/v7-backend/src/main/java/rs/ac/uns/ftn/svtvezbe07/model/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WEB/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +16,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2PrwSQtOWEz3FxISbjoabIUJAHL" />
   <component name="ProjectViewState">
@@ -34,13 +30,18 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/mihajlo/Documents/GitHub/WebTehnologije/WEB",
+    "last_opened_file_path": "/home/mihajlo/Documents/GitHub/WebTehnologije/WEB/v7-backend",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="Application.SvtVezbe07Application">
     <configuration name="SvtVezbe07Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-19" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="rs.ac.uns.ftn.svtvezbe07.SvtVezbe07Application" />
       <module name="main" />
       <extension name="coverage">
@@ -66,6 +67,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.SvtVezbe07Application" />
+      <item itemvalue="JavaScript Debug.Angular Application" />
+      <item itemvalue="npm.Angular CLI Server" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.SvtVezbe07Application" />
@@ -86,6 +92,7 @@
       <workItem from="1684228784986" duration="18000" />
       <workItem from="1684228892296" duration="79000" />
       <workItem from="1684229074964" duration="278000" />
+      <workItem from="1688054517412" duration="258000" />
     </task>
     <servers />
   </component>

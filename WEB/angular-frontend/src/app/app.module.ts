@@ -32,6 +32,7 @@ import { GroupsComponent } from './groups/groups.component';
 import { OneGroupComponent } from './one-group/one-group.component';
 import {PostsAllComponent} from "./posts-all/posts-all.component";
 import {CommentServiceService} from "./Services/comment-service.service";
+import {CommentComponent} from "./Comment/one-post.component";
 const routes: Routes = [
   { path: '', component: HomeComponentComponent },
   { path: 'login', component: LoginComponent},
@@ -42,10 +43,13 @@ const routes: Routes = [
   { path: 'post/:id', component: OnePostComponent},
   { path: 'MyProfile', component: GroupsComponent},
   { path: 'group/:id', component: OneGroupComponent},
+  { path: 'group/:id', component: OneGroupComponent},
+  { path: 'comment/:id', component: CommentComponent},
 
 ];
 @NgModule({
   declarations: [
+    CommentComponent,
     OneGroupComponent,
     PostsAllComponent,
     GroupsComponent,

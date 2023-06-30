@@ -13,7 +13,16 @@ export class PostsComponent {
 
   }
   @Input() posts:any;
+  getElementIdd(event:any){
 
+    // Get the source element
+    let element = event.target || event.srcElement || event.currentTarget;
+    // Get the id of the source element
+    let elementId = element.id;
+
+
+
+  }
   getElementId(event:any){
 
     // Get the source element

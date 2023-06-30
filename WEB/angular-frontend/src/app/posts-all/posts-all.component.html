@@ -1,4 +1,4 @@
-<div *ngFor="let post of posts">
+<div *ngFor="let post of posts" style="border-style: solid;border-color: brown;width: fit-content;min-width: 328px">
   <label>User :  </label>
   <label>{{post.user}}</label>
   <br>
@@ -10,11 +10,27 @@
   <br>
   <button (click)="getElementId($event)" id="{{post.id}}" >Like</button>
   <button (click)="getElementId($event)" id="{{post.id}}" >Dislike</button>
-  <button (click)="getElementId($event)" id="{{post.id}}" >Hearth</button>
+  <button (click)="getElementId($event)" id="{{post.id}}" >Heart</button>
   <br>
   <label>Likes : {{post.like}}  </label>
   <label>Dislikes : {{post.dislike}}  </label>
   <label>Hearths : {{post.hearth}}  </label>
+  <br>
+  <a href="http://localhost:4200/comment/{{post.id}}"><button>Make Comment</button></a>
+  <br>
+  <h5>Comment Section :</h5>
+    <div *ngFor="let com of post.comments">
+    <label>Date: {{com.date}}</label> <br>
+    <label>Comment: {{com.text}}</label>
+    <br>
+    <button (click)="getElementId($event)" id="{{com.id}}" >Like Comment</button>
+    <button (click)="getElementId($event)" id="{{com.id}}" >Dislike Comment</button>
+    <button (click)="getElementId($event)" id="{{com.id}}" >Heart Comment</button>
+      <br>
+      <label>Number of Reactions :{{com.reaction.length}}</label>
+    <br>
+    <br>
+  </div>
 
   <br>
   <br>

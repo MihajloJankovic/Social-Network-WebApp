@@ -18,6 +18,39 @@ export class CommentServiceService {
                 private router: Router,
                 private route: ActivatedRoute,) { }
 
+  ReactionNewCOmment(id:any,type:any) {
+
+    // const body = `username=${user.username}&password=${user.password}`;
+
+
+
+    const loginHeaders = new HttpHeaders({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    });
+    const body = {
+      'id': id,
+      'type': type,
+
+    };
+    return this.apiService.post(this.config._addReactionComment_url, JSON.stringify(body))
+      .subscribe((res) => {
+          if(res.body == "NOT_ACCEPTABLE" || res.name == "HttpErrorResponse")
+          {
+            alert("Error")
+          }else {
+            window.location.reload();
+          }
+        } ,
+        (error) => {
+          alert("Allready Did That !");
+
+
+        }
+
+      );
+
+  }
   ReactionNew(id:any,type:any) {
 
     // const body = `username=${user.username}&password=${user.password}`;
@@ -49,6 +82,39 @@ export class CommentServiceService {
         }
 
     );
+
+  }
+  create(post:any) {
+
+    // const body = `username=${user.username}&password=${user.password}`;
+
+
+
+    const loginHeaders = new HttpHeaders({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    });
+    const body = {
+      'postid': post.postid,
+      'comment': post.comment,
+
+    };
+    return this.apiService.post(this.config._addComment_url, JSON.stringify(body))
+      .subscribe((res) => {
+          if(res.body == "NOT_ACCEPTABLE" || res.name == "HttpErrorResponse")
+          {
+            alert("Error")
+          }else {
+            window.location.reload();
+          }
+        } ,
+        (error) => {
+          alert("Allready Did That !");
+
+
+        }
+
+      );
 
   }
 }
