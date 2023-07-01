@@ -1,5 +1,9 @@
 
-<div *ngIf="ba ==1">
+<div *ngIf="ba ==1" style="
+  border: 5px solid;
+  margin: auto;
+  width: 50%;
+  padding: 10px; text-align: center;">
 <h4>Settings</h4>
   <form [formGroup]="forma" (ngSubmit)="onSubmit()" >
     <label>Display Name :  </label>
@@ -12,18 +16,24 @@
 
   </form>
 </div>
-<h4>My Groups</h4>
-<div *ngIf="b ==1">
+
+<div *ngIf="b ==1" style="
+  border: 5px solid;
+  margin: auto;
+  width: 50%;
+  padding: 10px; text-align: center;">
+  <h4>My Groups</h4>
 <div *ngFor="let group of groups"  >
   <br>
-  <label>Group Name :  </label>
-  <label>{{group.name}}</label>
+  <label style="margin-top: 25px;">Group Name :  </label>
+  <label style="margin-top: 25px;">{{group.name}}</label>
   <br>
-  <label>Group Description :  </label>
-  <label>{{group.description}}</label>
   <br>
-  <button (click)="getElementId($event)" id="{{group.id}}" >delete</button>
-  <button (click)="getElementId($event)" id="{{group.id}}" >edit</button>
+  <label style="margin-top: 25px;">Group Description :  </label>
+  <label >{{group.description}}</label>
+  <br>
+  <button style="margin-top: 25px;" (click)="getElementId($event)" id="{{group.id}}" >delete</button>
+  <button style="margin-left: 25px;" (click)="getElementId($event)" id="{{group.id}}" >edit</button>
   <br>
   <br>
 </div>

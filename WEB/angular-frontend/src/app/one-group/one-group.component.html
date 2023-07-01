@@ -1,4 +1,8 @@
-<div *ngIf="b ==1" >
+<div *ngIf="b ==1" style="
+  border: 5px solid;
+  margin: auto;
+  width: 50%;
+  padding: 10px; text-align: center;">
 
 
   <form [formGroup]="forma" (ngSubmit)="onSubmit()" >
@@ -9,6 +13,8 @@
     <input type="text" formControlName="name" value="{{post.name}}" name="text"><br><br>
     <input type="submit" value="Save">
   </form>
+  <br>
+  <br>
   <button color="primary" (click)="back()" >Go Back</button>
   <br>
 

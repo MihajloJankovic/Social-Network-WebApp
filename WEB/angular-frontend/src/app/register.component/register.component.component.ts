@@ -57,7 +57,6 @@ export class RegisterComponentComponent {
     /**
      * Innocent until proven guilty
      */
-
     this.submitted = true;
     console.warn('Your order has been submitted', this.forma.value);
     this.authService.signup(this.forma.value)

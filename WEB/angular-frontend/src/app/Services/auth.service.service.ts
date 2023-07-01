@@ -97,6 +97,31 @@ export class AuthServiceService {
       });
   }
   signup(user:any) {
+    if(user.username.length < 3)
+    {
+      alert("username too short !");
+      return ;
+    }
+    if(user.password.length < 3)
+    {
+      alert("password too short !");
+      return ;
+    }
+    if(user.email.length < 5)
+    {
+      alert("email too short !");
+      return ;
+    }
+    if(user.fname.length < 3)
+    {
+      alert("Frist Name too short !");
+      return ;
+    }
+    if(user.lname.length < 3)
+    {
+      alert("Last Name Name too short !");
+      return ;
+    }
     const signupHeaders = new HttpHeaders({
       'Accept': 'application/json',
       'Content-Type': 'application/json'

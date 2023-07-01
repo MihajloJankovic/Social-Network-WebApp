@@ -1,18 +1,22 @@
+<div style="
+  border: 5px solid;
+  margin: auto;
+  width: 50%;
+  padding: 10px; text-align: center;">
 <h2>Home Page</h2>
-<a><button (click)="myFunction()">Change Password</button></a>
-<a><button (click)="LogOut()">Logout</button></a>
 
-<br>
-<br>
-<br>
-<br>
-<a href="http://localhost:4200/GroupCreate"><button>Create Group</button></a>
-<a href="http://localhost:4200/MyProfile"><button>My Profile</button></a>
 
+  <a href="http://localhost:4200/MyProfile" style="margin-left: 20px"><button>My Profile</button></a>
+  <a href="http://localhost:4200/GroupCreate"style="margin-left: 20px"><button>Create Group</button></a>
+  <a><button (click)="myFunction()" style="margin-left: 20px">Change Password</button></a>
+  <a><button (click)="LogOut()" style="margin-left: 20px">Logout</button></a>
 <br>
 <br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
+  <br>
+
 <form [formGroup]="forma" (ngSubmit)="onSubmit()">
 <div  class="container">
 
@@ -21,12 +25,9 @@
     <option [ngValue]="0" >My Profile</option>
     <option *ngFor="let country of groups" [ngValue]="country.id">{{country.name}}</option>
   </select>
-  <label>Post Text : </label>
+  <label style="margin-left: 15px;">Post Text : </label>
   <input type="text"  formControlName="post"  name="post" required>
-
-
-  <br>
-  <button type="submit">Post</button>
+  <button type="submit" style="margin-left: 15px">Post</button>
 
   <br>
 
@@ -43,3 +44,4 @@
 <h3>Feed</h3>
 <app-posts-all [posts]="postaa">
 </app-posts-all>
+</div>
