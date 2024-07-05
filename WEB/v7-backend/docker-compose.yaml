@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+    restart: always
+
+  mysql:
+    image: mariadb:10.8.3
+    # Uncomment below when on Mac M1
+    # platform: linux/arm64/v8
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Stolica22
+      MYSQL_DATABASE: mydatabase
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  frontend-service:
+    container_name: frontend-service
+    build: ../angular-frontend
+    restart: always
+    ports:
+      - "4200:4200"
+
+volumes:
+  data:
